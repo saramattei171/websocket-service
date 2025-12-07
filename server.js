@@ -2,7 +2,7 @@ import express from "express";
 import { WebSocketServer } from "ws";
 
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(express.json());
@@ -45,4 +45,5 @@ server.on("upgrade", (request, socket, head) => {
         wss.emit("connection", ws, request);
     });
 });
+
 
