@@ -7,8 +7,9 @@ const app = express();
 const PORT = process.env.PORT ||10000;
 
 
-app.get("/", (req, res) => {
+app.get("/send", (req, res) => {
   res.send("WebSocket server ON");
+   console.log("Comando ricevuto da n8n:", command);
 });
 
 
@@ -38,6 +39,7 @@ export function sendToAll(data) {
     }
   });
 }
+
 
 
 
