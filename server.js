@@ -7,13 +7,15 @@ const app = express();
 const PORT = process.env.PORT ||10000;
 
 
-app.get("/", (req, res) => {
-  res.send("WebSocket server ON");
-});
+app.post("/command", (req, res) => {
+  const { action } = req.body;
 
+  if (clientSocket) {
+    clientSocket.send(JSON.stringify({ action }));
+    console.log("Sent to WebSocket:", action);
+  }
 
-const server = app.listen(PORT, () => {
-  console.log("Server running on port", PORT);
+  res.json({ status: "OK", action });
 });
 
 // WebSocket collegato a Express
@@ -38,6 +40,7 @@ export function sendToAll(data) {
     }
   });
 }
+
 
 
 
