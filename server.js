@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
 
 
 const server = app.listen(PORT, () => {
-  res.send("ptrova");
   console.log("Server running on port", PORT);
 });
 
@@ -39,6 +38,7 @@ export function sendToAll(data) {
     }
   });
 }
+
 
 
 
